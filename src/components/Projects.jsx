@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import Marquee from "react-fast-marquee";
 import project1 from "../images/project1.png";
-import { useScroll, motion } from "framer-motion";
+import { motion } from "framer-motion";
 
 const Container = styled.div`
   display: flex;
@@ -88,12 +88,17 @@ const LinkList = styled.div`
   margin-left: 40px;
 `;
 
+const ButtonShowMore = styled.button`
+  margin-left: 60%;
+  width: 200px;
+  height: 50px;
+  background: #1a1a1a;
+  text-align: center;
+  cursor: pointer;
+`;
+
 const Projects = () => {
   const ref = React.useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["end end", "start start"],
-  });
 
   return (
     <Container>
@@ -206,6 +211,7 @@ const Projects = () => {
           </motion.div>
         </ProjectContainer>
       </ProjectList>
+      <ButtonShowMore>more on Github</ButtonShowMore>
     </Container>
   );
 };

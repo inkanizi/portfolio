@@ -54,7 +54,7 @@ const App = () => {
       </Loader>
       <Wrapper play={playAnimation}>
         <Links />
-        <Line/>
+        <Line />
         <Nav />
         <Preview />
         <About />

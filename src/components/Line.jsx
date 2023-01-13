@@ -1,17 +1,22 @@
 import { useRef, useState, useEffect } from "react";
-import { easeInOut, useScroll } from "framer-motion";
+import { useScroll } from "framer-motion";
 import { motion } from "framer-motion";
 
 const Line = () => {
   const [widthLine] = useState(1500);
-  const [heightLine] = useState(2000);
+  const [heightLine] = useState(6800);
   const [points, setPoints] = useState({
     xPoint1: 0,
     xPoint2: 0,
     xPoint3: 0,
+    xPoint4: 0,
     yPoint1: 0,
     yPoint2: 0,
     yPoint3: 0,
+    yPoint4: 0,
+    yPoint5: 0,
+    yPoint6: 0,
+    yPoint7: 0,
   });
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -23,70 +28,53 @@ const Line = () => {
     setPoints({
       xPoint1: (widthLine * 75) / 100,
       xPoint2: (widthLine * 10) / 100,
-      xPoint3: (widthLine * 75) / 100,
-      yPoint1: (heightLine * 20) / 100,
+      xPoint3: (widthLine * 85) / 100,
+      xPoint4: (widthLine * 50) / 100,
+      yPoint1: (heightLine * 6) / 100,
       yPoint2: (heightLine * 45) / 100,
-      yPoint3: (heightLine * 75) / 100,
+      yPoint3: (heightLine * 28) / 100,
+      yPoint4: (heightLine * 62) / 100,
+      yPoint5: (heightLine * 73) / 100,
+      yPoint6: (heightLine * 89) / 100,
+      yPoint7: (heightLine * 97) / 100,
     });
-  }, [widthLine]);
+  }, [widthLine, heightLine]);
 
   return (
     <div className="line" ref={ref}>
-        <motion.div 
+      <motion.div
         className="startPoint"
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
         transition={{
           delay: 0.5,
           x: { duration: 1 },
-          yoyo: Infinity
+          yoyo: Infinity,
         }}
-        >
-        </motion.div>
-      <motion.svg height="2000px" width={widthLine}>
+      ></motion.div>
+      <motion.svg height={heightLine} width={widthLine}>
         <motion.path
           d={`
             M ${points.xPoint1} ${points.yPoint1}
-            L ${points.xPoint1} ${points.yPoint2}
-            L ${points.xPoint2} ${points.yPoint2} 
-            L ${points.xPoint2} ${points.yPoint3}
+            V ${points.xPoint1}
+            H ${points.xPoint2} 
+            V ${points.yPoint3}
+            H ${points.xPoint3}
+            V ${points.yPoint4} 
+            H ${points.xPoint2}
+            V ${points.yPoint5}
+            H ${points.xPoint3}  
+            V ${points.yPoint6}
+            H ${points.xPoint4}
+            V ${points.yPoint7}
             `}
           stroke="#e6e707"
-          stroke-width="2"
+          strokeWidth="2"
+          transition={{ duration: 2 }}
           fill="transparent"
           pathLength="1"
           style={{ pathLength: scrollYProgress }}
         />
-
-        {/* <motion.line
-          x1="75%"
-          y1="300px"
-          x2="75%"
-          pathLength="0"
-          y2="1000px"
-          stroke="red"
-        />
-        <motion.line
-          pathLength="1"
-          style={{ pathLength: scrollYProgress }}
-          transition={{ duration: 4}}
-          x1="75%"
-          x2="10%"
-          y1="1000px"
-          y2="1000px"
-          stroke="red"
-        />
-        <motion.line
-          pathLength="1"
-          initial={{ pathLength: 0 }}
-          animate={{ pathLength: 1 }}
-          transition={{ duration: 8, yoyo: Infinity, ease: "easeInOut" }}
-          x1="10%"
-          y1="1000px"
-          x2="10%"
-          y2="2000px"
-          stroke="red"
-        /> */}
       </motion.svg>
     </div>
   );

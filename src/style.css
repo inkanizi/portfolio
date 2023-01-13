@@ -1,90 +1,88 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital@0;1&family=Roboto+Mono:ital,wght@0,700;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital@0;1&family=Roboto+Mono:ital,wght@0,700;1,700&display=swap");
 
-*{
-    margin: 0;
-    padding: 0;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-body{
-    margin: 0 auto;
-    font-family: 'Montserrat', sans-serif;
-    font-family: 'Roboto Mono', monospace;
-    background:  #1A1A1A;
-    box-sizing: border-box;
+body {
+  margin: 0 auto;
+  font-family: "Montserrat", sans-serif;
+  font-family: "Roboto Mono", monospace;
+  background: #1a1a1a;
+  box-sizing: border-box;
 }
 
-a{
+a {
   list-style: none;
   text-decoration: none;
 }
-.Nav{
-    padding-top: 20px;
-    width: 70%;
+.Nav {
+  padding-top: 20px;
+  width: 70%;
 }
-
 
 /* Loader */
 .loader {
-    width: 48px;
-    height: 48px;
-    display: inline-block;
-    position: relative;
-  }
-  .loader::after,
-  .loader::before {
-    content: '';  
-    box-sizing: border-box;
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    border: 2px solid #e6e707;
-    position: absolute;
-    left: 0;
-    top: 0;
-    animation: animloader 2s linear infinite;
-  }
-  .loader::after {
-    animation-delay: 1s;
-  }
-  
-  @keyframes animloader {
-    0% {
-      transform: scale(0);
-      opacity: 1;
-    }
-    100% {
-      transform: scale(1);
-      opacity: 0;
-    }
-  }
+  width: 48px;
+  height: 48px;
+  display: inline-block;
+  position: relative;
+}
+.loader::after,
+.loader::before {
+  content: "";
+  box-sizing: border-box;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid #e6e707;
+  position: absolute;
+  left: 0;
+  top: 0;
+  animation: animloader 2s linear infinite;
+}
+.loader::after {
+  animation-delay: 1s;
+}
 
-.tagcloud{
+@keyframes animloader {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+.tagcloud {
   min-width: 300px;
   min-height: 300px;
   padding: 100px;
 }
-.tagcloud--item{
+.tagcloud--item {
   color: #e6e707;
   letter-spacing: 2px;
 }
 
-
-.marquee{
+.marquee {
   background: transparent;
   color: #e6e707;
 }
-.marquee-container{
+.marquee-container {
   width: 450px;
 }
 
-.line{
-  position:absolute;
+.line {
+  position: absolute;
   top: 0;
 }
 
-.startPoint{
+.startPoint {
   position: absolute;
-  top: 19%;
+  top: 6%;
   left: 74%;
   width: 30px;
   height: 30px;

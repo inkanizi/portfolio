@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import photo from "../images/photoforezume.jpg";
 
 const Container = styled.div`
   margin: 0 0px 0 0;
@@ -39,10 +40,23 @@ const Text = styled.p`
   text-indent: 30px;
 `;
 
-const Image = styled.div`
+const Image = styled.img`
   width: 400px;
   height: 400px;
-  background-color: #493c77;
+  object-fit: cover;
+`;
+const ImageFilter = styled.div`
+  position: relative;
+  &::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: #e6e707;
+    mix-blend-mode: multiply;
+  }
 `;
 
 const About = () => {
@@ -77,7 +91,9 @@ const About = () => {
               to build a web app with the Spotify API using Node & React.
             </Text>
           </TextContainer>
-          <Image />
+          <ImageFilter>
+            <Image src={photo} />
+          </ImageFilter>
         </Row>
       </motion.div>
     </Container>
