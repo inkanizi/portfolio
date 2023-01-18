@@ -2,6 +2,7 @@ import { useRef, useState, useEffect } from "react";
 import { useScroll } from "framer-motion";
 import { motion } from "framer-motion";
 
+
 const Line = () => {
   const [widthLine] = useState(1500);
   const [heightLine] = useState(6800);
@@ -42,7 +43,7 @@ const Line = () => {
 
   return (
     <div className="line" ref={ref}>
-      <motion.div
+      {scrollYProgress >= 0 ? <motion.div
         className="startPoint"
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
@@ -51,7 +52,7 @@ const Line = () => {
           x: { duration: 1 },
           yoyo: Infinity,
         }}
-      ></motion.div>
+      ></motion.div> : <></>}
       <motion.svg height={heightLine} width={widthLine}>
         <motion.path
           d={`
