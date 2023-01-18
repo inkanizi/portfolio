@@ -90,11 +90,28 @@ const LinkList = styled.div`
 
 const ButtonShowMore = styled.button`
   margin-left: 60%;
+  outline: none;
+  border: none;
+  font-size: 26px;
   width: 200px;
-  height: 50px;
-  background: #1a1a1a;
-  text-align: center;
+  height: 60px;
+  background: transparent;
+  color: #e8e8e8;
   cursor: pointer;
+
+  &::before {
+    content: ".";
+    color: #e6e707;
+    font-size: 26px;
+  }
+
+  &:hover {
+    content: ".";
+    color: #e6e707;
+    font-size: 26px;
+  }
+
+
 `;
 
 const Projects = () => {
@@ -102,7 +119,14 @@ const Projects = () => {
 
   return (
     <Container>
-      <Title>projects</Title>
+      <motion.div
+         initial={{ opacity: 0, x: -200 }}
+         transition={{ duration: 0.5 }}
+         whileInView={{ opacity: 1, x: 0 }}
+         viewport={{ once: true, amount: 0.1 }}
+      >
+        <Title>projects</Title>
+      </motion.div>
       <ProjectList>
         <ProjectContainer ref={ref}>
           <motion.div
@@ -178,7 +202,7 @@ const Projects = () => {
         <ProjectContainer>
           <motion.div
             initial={{ opacity: 0, y: "10vh" }}
-            duration={{ duration: 4 }}
+            duration={{ duration: 4 }} 
             transition={{ type: "just" }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.6 }}

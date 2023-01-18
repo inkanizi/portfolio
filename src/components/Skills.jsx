@@ -26,15 +26,28 @@ const Skils = () => {
   return (
     <Container>
       <motion.div
-        initial={{ opacity: 0, y: "10vh" }}
-        duration={{ duration: 4 }}
+        initial={{ opacity: 0, y: "30vh" }}
+        duration={{ duration: 7 }}
         transition={{ type: "just" }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, }}
+        viewport={{ once: true, amount: 0.2 }}
       >
         <Block>
-          <Title>my skills</Title>
-          <TagCloud
+          <motion.div
+            initial={{ opacity: 0, x: 200 }}
+            transition={{ duration: 0.5 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.1 }}
+          >
+            <Title>my skills</Title>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0 }}
+            duration={{ duration: 6 }}
+            whileInView={{ opacity: 1}}
+            viewport={{ once: true, amount: 0.2 }}
+          >
+            <TagCloud
             options={() => ({
               radius: 300,
               maxSpeed: "fast",
@@ -53,6 +66,8 @@ const Skils = () => {
               "SASS",
             ]}
           </TagCloud>
+          </motion.div>
+          
         </Block>
       </motion.div>
     </Container>

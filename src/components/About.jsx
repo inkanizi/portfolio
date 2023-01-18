@@ -62,7 +62,15 @@ const ImageFilter = styled.div`
 const About = () => {
   return (
     <Container>
-      <Title>about me</Title>
+      <motion.div
+        initial={{ opacity: 0, x: -200 }}
+        transition={{ duration: 0.5 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true, amount: 0.1 }}
+      >
+        <Title>about me</Title>
+      </motion.div>
+
       <motion.div
         initial={{ opacity: 0, y: "10vh" }}
         duration={{ duration: 4 }}
