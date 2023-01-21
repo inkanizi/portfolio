@@ -17,10 +17,6 @@ a {
   list-style: none;
   text-decoration: none;
 }
-.Nav {
-  padding-top: 20px;
-  width: 70%;
-}
 
 /* Loader */
 .loader {
@@ -57,6 +53,7 @@ a {
   }
 }
 
+/* Tag Cloud */
 .tagcloud {
   min-width: 300px;
   min-height: 300px;
@@ -67,6 +64,7 @@ a {
   letter-spacing: 2px;
 }
 
+/* Marquee Line */
 .marquee {
   background: transparent;
   color: #e6e707;
@@ -74,19 +72,3 @@ a {
 .marquee-container {
   width: 450px;
 }
-
-.line {
-  position: absolute;
-  top: 0;
-}
-
-.startPoint {
-  position: absolute;
-  top: 6%;
-  left: 74%;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background: #e6e707;
-}
-

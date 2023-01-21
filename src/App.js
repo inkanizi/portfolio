@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import Line from "./components/Line";
+import Contact from "./components/Contact";
 
 const Loader = styled.div`
   display: ${(props) => (props.play ? "none" : "flex")};
@@ -23,32 +24,30 @@ const Wrapper = styled.div`
   justify-content: center;
   width: 100%;
 `;
-const Section = styled.div`
-  background-color: black;
-  height: 1000px;
-`;
 
 const App = () => {
   const [playAnimation, setPlayAnimation] = useState(false);
-
-  // This will run one time after the component mounts
   useEffect(() => {
     const onPageLoad = () => {
       setPlayAnimation(true);
     };
-
-    // Check if the page has already loaded
     if (document.readyState === "complete") {
       onPageLoad();
     } else {
       window.addEventListener("load", onPageLoad);
-      // Remove the event listener when component unmounts
       return () => window.removeEventListener("load", onPageLoad);
     }
   }, []);
 
+  const scrollHandler = () =>{
+    console.log("123");
+    if (window.scrollHeight - window.scrollTop === window.clientHeight) {
+      alert('This is the End');
+    }
+  }
+
   return (
-    <div className="App">
+    <div className="App" onScroll={scrollHandler}>
       <Loader play={playAnimation}>
         <span className="loader"></span>
       </Loader>
@@ -60,7 +59,7 @@ const App = () => {
         <About />
         <Skills />
         <Projects />
-        <Section />
+        <Contact />
       </Wrapper>
     </div>
   );

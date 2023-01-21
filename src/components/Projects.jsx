@@ -12,7 +12,7 @@ const Container = styled.div`
   padding-top: 400px;
   width: 75%;
 `;
-const Title = styled.h1`
+const Title = styled(motion.h1)`
   padding-left: 110px;
   color: #e8e8e8;
   padding-bottom: 50px;
@@ -37,7 +37,7 @@ const ProjectContainer = styled.div`
   }
 `;
 
-const Project = styled.div`
+const Project = styled(motion.div)`
   padding: 150px;
   display: flex;
   width: 650px;
@@ -80,7 +80,7 @@ const Name = styled.h2`
   padding-bottom: 20px;
 `;
 
-const LinkList = styled.div`
+const GitLink = styled.a`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -110,8 +110,6 @@ const ButtonShowMore = styled.button`
     color: #e6e707;
     font-size: 26px;
   }
-
-
 `;
 
 const Projects = () => {
@@ -119,120 +117,96 @@ const Projects = () => {
 
   return (
     <Container>
-      <motion.div
-         initial={{ opacity: 0, x: -200 }}
-         transition={{ duration: 0.5 }}
-         whileInView={{ opacity: 1, x: 0 }}
-         viewport={{ once: true, amount: 0.1 }}
+      <Title
+        initial={{ opacity: 0, x: -200 }}
+        transition={{ duration: 0.5 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true, amount: 0.1 }}
       >
-        <Title>projects</Title>
-      </motion.div>
+        projects
+      </Title>
       <ProjectList>
         <ProjectContainer ref={ref}>
-          <motion.div
+          <Project
             initial={{ opacity: 0, y: "10vh" }}
             duration={{ duration: 4 }}
             transition={{ type: "just" }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.6 }}
           >
-            <Project>
-              <a href="/">
-                <Name>bittype</Name>
-              </a>
-              <ImageCore>
-                <Image sizes="cover" src={project1} />
-              </ImageCore>
-              <Tags>
-                <Marquee gradient={false} speed={50} className="marquee">
-                  <Tag>React</Tag>
-                  <Tag>Styled Components</Tag>
-                  <Tag>Express</Tag>
-                  <Tag>Redux</Tag>
-                  <Tag>Lorem</Tag>
-                </Marquee>
-                <LinkList>
-                  <a href="/">
-                    <FontAwesomeIcon
-                      icon={faGithub}
-                      size="xl"
-                      color="#e6e707"
-                    />
-                  </a>
-                </LinkList>
-              </Tags>
-            </Project>
-          </motion.div>
+            <a href="/">
+              <Name>bittype</Name>
+            </a>
+            <ImageCore>
+              <Image sizes="cover" src={project1} />
+            </ImageCore>
+            <Tags>
+              <Marquee gradient={false} speed={50} className="marquee">
+                <Tag>React</Tag>
+                <Tag>Styled Components</Tag>
+                <Tag>Express</Tag>
+                <Tag>Redux</Tag>
+                <Tag>Lorem</Tag>
+              </Marquee>
+              <GitLink href="/">
+                <FontAwesomeIcon icon={faGithub} size="xl" color="#e6e707" />
+              </GitLink>
+            </Tags>
+          </Project>
         </ProjectContainer>
         <ProjectContainer>
-          <motion.div
+          <Project
             initial={{ opacity: 0, y: "10vh" }}
             duration={{ duration: 4 }}
             transition={{ type: "just" }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.6 }}
           >
-            <Project>
-              <a href="/">
-                <Name>quotes forum</Name>
-              </a>
-              <ImageCore>
-                <Image sizes="cover" src={project1} />
-              </ImageCore>
-              <Tags>
-                <Marquee gradient={false} speed={50} className="marquee">
-                  <Tag>React</Tag>
-                  <Tag>NestJs</Tag>
-                  <Tag>Express</Tag>
-                  <Tag>Redux</Tag>
-                </Marquee>
-                <LinkList>
-                  <a href="/">
-                    <FontAwesomeIcon
-                      icon={faGithub}
-                      size="xl"
-                      color="#e6e707"
-                    />
-                  </a>
-                </LinkList>
-              </Tags>
-            </Project>
-          </motion.div>
+            <a href="/">
+              <Name>quotes forum</Name>
+            </a>
+            <ImageCore>
+              <Image sizes="cover" src={project1} />
+            </ImageCore>
+            <Tags>
+              <Marquee gradient={false} speed={50} className="marquee">
+                <Tag>React</Tag>
+                <Tag>NestJs</Tag>
+                <Tag>Express</Tag>
+                <Tag>Redux</Tag>
+              </Marquee>
+              <GitLink href="/">
+                <FontAwesomeIcon icon={faGithub} size="xl" color="#e6e707" />
+              </GitLink>
+            </Tags>
+          </Project>
         </ProjectContainer>
         <ProjectContainer>
-          <motion.div
+          <Project
             initial={{ opacity: 0, y: "10vh" }}
-            duration={{ duration: 4 }} 
+            duration={{ duration: 4 }}
             transition={{ type: "just" }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.6 }}
           >
-            <Project>
-              <a href="/">
-                <Name>wetheriva</Name>
-              </a>
-              <ImageCore>
-                <Image sizes="cover" src={project1} />
-              </ImageCore>
-              <Tags>
-                <Marquee gradient={false} speed={50} className="marquee">
-                  <Tag>React</Tag>
-                  <Tag>Redux</Tag>
-                  <Tag>OpenWeather API</Tag>
-                  <Tag>Redux</Tag>
-                </Marquee>
-                <LinkList>
-                  <a href="/">
-                    <FontAwesomeIcon
-                      icon={faGithub}
-                      size="xl"
-                      color="#e6e707"
-                    />
-                  </a>
-                </LinkList>
-              </Tags>
-            </Project>
-          </motion.div>
+            <a href="/">
+              <Name>wetheriva</Name>
+            </a>
+            <ImageCore>
+              <Image sizes="cover" src={project1} />
+            </ImageCore>
+            <Tags>
+              <Marquee gradient={false} speed={50} className="marquee">
+                <Tag>React</Tag>
+                <Tag>Redux</Tag>
+                <Tag>OpenWeather API</Tag>
+                <Tag>Redux</Tag>
+              </Marquee>
+              <GitLink href="/">
+                <FontAwesomeIcon icon={faGithub} size="xl" color="#e6e707" />
+              </GitLink>
+            </Tags>
+          </Project>
         </ProjectContainer>
       </ProjectList>
       <ButtonShowMore>more on Github</ButtonShowMore>

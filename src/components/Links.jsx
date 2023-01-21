@@ -20,7 +20,7 @@ const Line = styled.div`
   width: 1px;
   background-color: #e6e707;
 `;
-const LinkContainer = styled.div`
+const LinkContainer = styled(motion.div)`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -46,7 +46,7 @@ const IconList = styled.div`
 const Links = () => {
   return (
     <Container>
-      <motion.div
+      <LinkContainer
         initial={{ opacity: 0, y: "100vh" }}
         animate={{ opacity: 1, y: 0 }}
         transition={{
@@ -55,41 +55,37 @@ const Links = () => {
           default: { ease: "linear" },
         }}
       >
-        <LinkContainer>
-          <IconList>
-            <a href="https://t.me/inkanizi" title="telegram">
-              <FontAwesomeIcon icon={faTelegram} color="#E6E707" />
-            </a>
-            <a href="https://github.com/inkanizi" title="GitHub">
-              <FontAwesomeIcon icon={faGithub} color="#E6E707" />
-            </a>
-            <a href="https://vk.com/silnoe_toplivo" title="VK">
-              <FontAwesomeIcon icon={faVk} color="#E6E707" />
-            </a>
-            <a href="/" title="Resume">
-              <FontAwesomeIcon icon={faFile} color="#E6E707" />
-            </a>
-          </IconList>
-          <Line></Line>
-        </LinkContainer>
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0, y: "100vh" }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{
-          delay: 0.5,
-          y: { duration: 1 },
-          default: { ease: "linear" },
-        }}
-      >
-        <LinkContainer>
-          <a href="mailto:petrov.aleksander741@gmail.com" title="Email">
-            <Email>petrov.alekasnder@gmail.com</Email>
+        <IconList>
+          <a href="https://t.me/inkanizi" title="telegram">
+            <FontAwesomeIcon icon={faTelegram} color="#E6E707" />
           </a>
-          <Line></Line>
-        </LinkContainer>
-      </motion.div>
+          <a href="https://github.com/inkanizi" title="GitHub">
+            <FontAwesomeIcon icon={faGithub} color="#E6E707" />
+          </a>
+          <a href="https://vk.com/silnoe_toplivo" title="VK">
+            <FontAwesomeIcon icon={faVk} color="#E6E707" />
+          </a>
+          <a href="/" title="Resume">
+            <FontAwesomeIcon icon={faFile} color="#E6E707" />
+          </a>
+        </IconList>
+        <Line></Line>
+      </LinkContainer>
+
+      <LinkContainer
+        initial={{ opacity: 0, y: "100vh" }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{
+          delay: 0.5,
+          y: { duration: 1 },
+          default: { ease: "linear" },
+        }}
+      >
+        <a href="mailto:petrov.aleksander741@gmail.com" title="Email">
+          <Email>petrov.alekasnder@gmail.com</Email>
+        </a>
+        <Line></Line>
+      </LinkContainer>
     </Container>
   );
 };

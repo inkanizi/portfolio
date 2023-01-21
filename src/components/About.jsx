@@ -7,7 +7,7 @@ const Container = styled.div`
   margin: 0 0px 0 0;
   width: 1000px;
 `;
-const Title = styled.h1`
+const Title = styled(motion.h1)`
   color: #e8e8e8;
   position: relative;
   padding-bottom: 20px;
@@ -18,7 +18,7 @@ const Title = styled.h1`
   }
 `;
 
-const Row = styled.div`
+const Row = styled(motion.div)`
   display: flex;
   width: 100%;
   align-items: flex-start;
@@ -62,39 +62,46 @@ const ImageFilter = styled.div`
 const About = () => {
   return (
     <Container>
-      <motion.div
+      <Title
         initial={{ opacity: 0, x: -200 }}
         transition={{ duration: 0.5 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true, amount: 0.1 }}
       >
-        <Title>about me</Title>
-      </motion.div>
+        about me
+      </Title>
 
-      <motion.div
+      <Row
         initial={{ opacity: 0, y: "10vh" }}
         duration={{ duration: 4 }}
         transition={{ type: "just" }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.6 }}
       >
-        <Row>
-          <TextContainer>
-            <Text>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde, eius at ex corporis obcaecati veritatis dicta tempore autem debitis mollitia pariatur iste, rerum natus, asperiores minima quisquam aliquid ea optio hic amet! Deleniti quas quasi placeat modi necessitatibus impedit? Sapiente optio, adipisci natus fugiat qui maxime consequuntur voluptatem rem laudantium at? Neque libero soluta consequuntur atque?
-            </Text>
-            <Text>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis nihil voluptatibus sed a quia sit aspernatur, at velit voluptas corrupti. Accusantium, animi? Impedit, ex.
-            </Text>
-            <Text>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio accusamus nesciunt qui officiis, voluptatum magnam libero.
-            </Text>
-          </TextContainer>
-          <ImageFilter>
-            <Image src={photo} />
-          </ImageFilter>
-        </Row>
-      </motion.div>
+        <TextContainer>
+          <Text>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde, eius
+            at ex corporis obcaecati veritatis dicta tempore autem debitis
+            mollitia pariatur iste, rerum natus, asperiores minima quisquam
+            aliquid ea optio hic amet! Deleniti quas quasi placeat modi
+            necessitatibus impedit? Sapiente optio, adipisci natus fugiat qui
+            maxime consequuntur voluptatem rem laudantium at? Neque libero
+            soluta consequuntur atque?
+          </Text>
+          <Text>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis
+            nihil voluptatibus sed a quia sit aspernatur, at velit voluptas
+            corrupti. Accusantium, animi? Impedit, ex.
+          </Text>
+          <Text>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio
+            accusamus nesciunt qui officiis, voluptatum magnam libero.
+          </Text>
+        </TextContainer>
+        <ImageFilter>
+          <Image src={photo} />
+        </ImageFilter>
+      </Row>
     </Container>
   );
 };

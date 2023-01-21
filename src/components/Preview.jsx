@@ -8,7 +8,7 @@ const Container = styled.div`
   height: 90vh;
   margin: 300px 400px 0 0;
 `;
-const Title = styled.h1`
+const Title = styled(motion.h1)`
   font-size: 56px;
   color: #e8e8e8;
   padding-bottom: 20px;
@@ -17,11 +17,11 @@ const Title = styled.h1`
     color: #e6e707;
   }
 `;
-const Name = styled.h2`
+const Name = styled(motion.h2)`
   color: #e6e707;
   padding: 20px 0;
 `;
-const SubTitle = styled.h1`
+const SubTitle = styled(motion.h1)`
   color: #555;
 `;
 
@@ -29,27 +29,29 @@ const Preview = () => {
   return (
     <div className="Preview">
       <Container>
-        <motion.div
+        <Title
           initial={{ opacity: 0, x: "-100vh" }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <Title>myName</Title>
-        </motion.div>
-        <motion.div
+          myName
+        </Title>
+
+        <Name
           initial={{ opacity: 0, y: "-10vh" }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
-          <Name>Aleksander Petrov</Name>
-        </motion.div>
-        <motion.div
+          Aleksander Petrov
+        </Name>
+
+        <SubTitle
           initial={{ opacity: 0, y: "-10vh" }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
-          <SubTitle>Junior Web Developer</SubTitle>
-        </motion.div>
+          Junior Web Developer
+        </SubTitle>
       </Container>
     </div>
   );

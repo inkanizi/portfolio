@@ -1,11 +1,26 @@
 import { useRef, useState, useEffect } from "react";
 import { useScroll } from "framer-motion";
 import { motion } from "framer-motion";
+import styled from "styled-components";
 
+const LinePath = styled(motion.div)`
+    position: absolute;
+    top: 0;
+`
+const StartPoint = styled(motion.div)`
+    position: absolute;
+    top: 6%;
+    left: 74%;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #e6e707;
+`
 
 const Line = () => {
   const [widthLine] = useState(1500);
   const [heightLine] = useState(6800);
+
   const [points, setPoints] = useState({
     xPoint1: 0,
     xPoint2: 0,
@@ -42,9 +57,8 @@ const Line = () => {
   }, [widthLine, heightLine]);
 
   return (
-    <div className="line" ref={ref}>
-      {scrollYProgress >= 0 ? <motion.div
-        className="startPoint"
+    <LinePath ref={ref}>
+      <StartPoint
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
         transition={{
@@ -52,7 +66,7 @@ const Line = () => {
           x: { duration: 1 },
           yoyo: Infinity,
         }}
-      ></motion.div> : <></>}
+      ></StartPoint>
       <motion.svg height={heightLine} width={widthLine}>
         <motion.path
           d={`
@@ -77,7 +91,7 @@ const Line = () => {
           style={{ pathLength: scrollYProgress }}
         />
       </motion.svg>
-    </div>
+    </LinePath>
   );
 };
 
