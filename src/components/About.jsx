@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import photo from "../images/photoforezume.jpg";
+import photo from "../images/photoforezume.webp";
 
 const Container = styled.div`
   margin: 0 0px 0 0;

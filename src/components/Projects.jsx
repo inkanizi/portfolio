@@ -3,7 +3,7 @@ import React from "react";
 import styled from "styled-components";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import Marquee from "react-fast-marquee";
-import project1 from "../images/project1.png";
+import project1 from "../images/project1.webp";
 import { motion } from "framer-motion";
 
 const Container = styled.div`
@@ -134,11 +134,11 @@ const Projects = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.6 }}
           >
-            <a href="/">
+            <a href="/" aria-label="bittype">
               <Name>bittype</Name>
             </a>
             <ImageCore>
-              <Image sizes="cover" src={project1} />
+              <Image sizes="cover" alt="bittype" src={project1} />
             </ImageCore>
             <Tags>
               <Marquee gradient={false} speed={50} className="marquee">
@@ -162,11 +162,11 @@ const Projects = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.6 }}
           >
-            <a href="/">
+            <a href="/" aria-label="quotes forum">
               <Name>quotes forum</Name>
             </a>
             <ImageCore>
-              <Image sizes="cover" src={project1} />
+              <Image sizes="cover" alt="quotes forum" src={project1} />
             </ImageCore>
             <Tags>
               <Marquee gradient={false} speed={50} className="marquee">
@@ -189,11 +189,11 @@ const Projects = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.6 }}
           >
-            <a href="/">
+            <a href="/" aria-label="wetheriva">
               <Name>wetheriva</Name>
             </a>
             <ImageCore>
-              <Image sizes="cover" src={project1} />
+              <Image sizes="cover" alt="wetheriva" src={project1} />
             </ImageCore>
             <Tags>
               <Marquee gradient={false} speed={50} className="marquee">
