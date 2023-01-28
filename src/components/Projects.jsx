@@ -13,7 +13,6 @@ const Container = styled.div`
   width: 75%;
 `;
 const Title = styled(motion.h1)`
-  padding-left: 110px;
   color: #e8e8e8;
   padding-bottom: 50px;
   &::before {
@@ -32,19 +31,29 @@ const ProjectContainer = styled.div`
   display: flex;
   width: 100%;
   justify-content: flex-start;
+
   &:nth-child(even) {
     justify-content: flex-end;
+  }
+  @media (max-width: 768px) {
+    &:nth-child(even) {
+      justify-content: flex-start;
+    }
   }
 `;
 
 const Project = styled(motion.div)`
-  padding: 150px;
+  padding-bottom: 150px;
+  padding-top: 150px;
   display: flex;
   width: 650px;
   flex-direction: column;
   align-items: flex-start;
   color: #e8e8e8;
   justify-content: space-between;
+
+  @media (max-width: 768px) {
+  }
 `;
 
 const Image = styled.img`

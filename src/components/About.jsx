@@ -5,7 +5,10 @@ import photo from "../images/photoforezume.webp";
 
 const Container = styled.div`
   margin: 0 0px 0 0;
-  width: 1000px;
+  width: 90%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 `;
 const Title = styled(motion.h1)`
   color: #e8e8e8;
@@ -20,9 +23,14 @@ const Title = styled(motion.h1)`
 
 const Row = styled(motion.div)`
   display: flex;
-  width: 100%;
+  width: 60%;
   align-items: flex-start;
   justify-content: space-between;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const TextContainer = styled.div`
@@ -99,7 +107,7 @@ const About = () => {
           </Text>
         </TextContainer>
         <ImageFilter>
-          <Image src={photo} />
+          <Image src={photo} alt="its me)" />
         </ImageFilter>
       </Row>
     </Container>

@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 const Container = styled.div`
   margin: 400px 0px 0 0;
-  width: 1000px;
+  width: 90%;
 `;
 const Title = styled(motion.h1)`
   color: #e8e8e8;
@@ -20,6 +20,10 @@ const Block = styled(motion.div)`
   display: flex;
   align-items: center;
   flex-direction: row-reverse;
+  justify-content: space-around;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 const Skils = () => {

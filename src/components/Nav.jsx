@@ -1,4 +1,4 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
@@ -13,12 +13,11 @@ const Logo = styled.h1`
   color: #e6e707;
 `;
 const InfoList = styled.div`
-  width: 35%;
   display: flex;
   align-items: center;
   justify-content: space-between;
 `;
-const InfoItem = styled.div`
+const InfoItem = styled(motion.div)`
   margin: 10px;
   cursor: pointer;
   color: #e8e8e8;
@@ -31,6 +30,16 @@ const InfoItem = styled.div`
 `;
 
 const Nav = () => {
+  const [screen, setScreen] = useState(true);
+
+  useEffect(() => {
+    if (window.innerWidth < 376) {
+      setScreen(false);
+    } else {
+      setScreen(true);
+    }
+  }, []);
+
   return (
     <Container
       initial={{ opacity: 0, y: "-5vh" }}
@@ -38,11 +47,39 @@ const Nav = () => {
       transition={{ duration: 1.5 }}
     >
       <Logo>ink</Logo>
-      <InfoList>
-        <InfoItem>about</InfoItem>
-        <InfoItem>experience</InfoItem>
-        <InfoItem>projects</InfoItem>
-      </InfoList>
+      {screen ? (
+        <InfoList>
+          <InfoItem
+            whileHover={{
+              scale: 1.2,
+              transition: { duration: 0.3, type: "just" },
+            }}
+            whileTap={{ scale: 0.9 }}
+          >
+            about
+          </InfoItem>
+          <InfoItem
+            whileHover={{
+              scale: 1.2,
+              transition: { duration: 0.3, type: "just" },
+            }}
+            whileTap={{ scale: 0.9 }}
+          >
+            experience
+          </InfoItem>
+          <InfoItem
+            whileHover={{
+              scale: 1.2,
+              transition: { duration: 0.3, type: "just" },
+            }}
+            whileTap={{ scale: 0.9 }}
+          >
+            projects
+          </InfoItem>
+        </InfoList>
+      ) : (
+        <></>
+      )}
     </Container>
   );
 };

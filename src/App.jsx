@@ -39,20 +39,17 @@ const App = () => {
     }
   }, []);
 
-  const scrollHandler = () =>{
-    console.log("123");
-    if (window.scrollHeight - window.scrollTop === window.clientHeight) {
-      alert('This is the End');
-    }
-  }
+  useEffect(()=>{
+    
+  }, [])
 
   return (
-    <div className="App" onScroll={scrollHandler}>
+    <div className="App">
       <Loader play={playAnimation}>
         <span className="loader"></span>
       </Loader>
       <Wrapper play={playAnimation}>
-        <Links />
+        {/* <Links /> */}
         <Line />
         <Nav />
         <Preview />

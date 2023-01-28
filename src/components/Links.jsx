@@ -11,7 +11,7 @@ const Container = styled.div`
   bottom: 0;
   align-items: flex-end;
   justify-content: space-between;
-  width: 90%;
+  width: 90vw;
 `;
 
 const Line = styled.div`
